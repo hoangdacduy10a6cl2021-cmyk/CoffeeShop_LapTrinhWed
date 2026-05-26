@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Coffeeshop.Models.Product>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shop - Coffee Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+            }
+
+            .navbar {
+                background: #fff;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+                padding: 12px 40px;
+            }
+
+            .nav-link {
+                color: #333 !important;
+                font-weight: 500;
+            }
+
+                .nav-link:hover {
+                    color: #c8902a !important;
+                }
+
+            .item-wrapper {
+                background: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                margin-bottom: 30px;
+            }
+
+            .item-img img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .item-content {
+                padding: 16px;
+            }
+
+            .item-subtitle {
+                font-size: 16px;
+                font-weight: 700;
+                color: #222;
+                text-decoration: none;
+                display: block;
+            }
+
+                .item-subtitle:hover {
+                    color: #c8902a;
+                }
+
+            .mbr-text {
+                color: #888;
+                font-size: 14px;
+                margin-top: 6px;
+            }
+
+            .mbr-section-btn {
+                padding: 0 16px 16px;
+            }
+
+            .btn-primary-custom {
+                background: #c8902a;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 14px;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+                .btn-primary-custom:hover {
+                    background: #a67520;
+                    color: #fff;
+                }
+
+            .section-subtitle {
+                text-align: center;
+                color: #666;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+    </style>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="navbar-brand">
+                <a asp-controller="Home" asp-action="Index">
+                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="38" r="20" stroke="#c8902a" stroke-width="3" />
+                        <path d="M44 38c0 6.627-5.373 12-12 12S20 44.627 20 38" stroke="#c8902a" stroke-width="2.5" />
+                        <path d="M44 38h6a6 6 0 000-12h-6" stroke="#c8902a" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Products" asp-action="Shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section data-bs-version="5.1" class="info3 cid-tsEY2vwh5a mbr-parallax-background" id="info3-b">
+        <div class="mbr-overlay" style="opacity:0.9; background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80');">
+        </div>
+        <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 0, 0);"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card col-12 col-lg-10">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center" style="text-align:center; padding: 60px 0;">
+                            <h4 class="card-title mbr-fonts-style align-center mb-4 display-1" style="color:#fff;">
+                                <strong>Shop</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section data-bs-version="5.1" class="content2 cid-tsEZVFGbrL" id="content2-g">
+        <div class="container">
+            <div class="mbr-section-head">
+                <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
+                    The secret to a perfect cup , every time...
+                </h5>
+            </div>
+            <partial name="_Product" model="Model"></partial>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

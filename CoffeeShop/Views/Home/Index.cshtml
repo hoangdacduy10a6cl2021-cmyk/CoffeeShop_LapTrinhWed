@@ -1,0 +1,245 @@
+﻿@model IEnumerable<Coffeeshop.Models.Product>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', sans-serif;
+            }
+
+            
+            .navbar {
+                background: #fff;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+                padding: 12px 40px;
+            }
+
+            .navbar-brand img {
+                height: 3rem;
+            }
+
+            .nav-link {
+                color: #333 !important;
+                font-weight: 500;
+            }
+
+                .nav-link:hover {
+                    color: #c8902a !important;
+                }
+
+            
+            .hero-section {
+                position: relative;
+                width: 100%;
+                height: 90vh;
+                background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+                .hero-section::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0,0,0,0.45);
+                }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                color: #fff;
+            }
+
+                .hero-content h1 {
+                    font-size: 58px;
+                    font-weight: 800;
+                    max-width: 750px;
+                    margin-bottom: 16px;
+                }
+
+                .hero-content p {
+                    font-size: 18px;
+                    margin-bottom: 32px;
+                    opacity: 0.9;
+                }
+
+            .btn-shop {
+                background: #c8902a;
+                color: #fff;
+                border: none;
+                padding: 14px 32px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+                .btn-shop:hover {
+                    background: #a67520;
+                    color: #fff;
+                }
+
+            
+            .top-selling {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+                font-weight: 700;
+                text-align: center;
+                margin-bottom: 8px;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                color: #666;
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .item {
+                margin-bottom: 30px;
+            }
+
+            .item-wrapper {
+                background: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            }
+
+            .item-img img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .item-content {
+                padding: 16px;
+            }
+
+            .item-subtitle {
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 6px;
+                color: #222;
+            }
+
+            .mbr-text {
+                color: #888;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .item-footer {
+                padding: 0 16px 16px;
+            }
+
+            .btn-primary-custom {
+                background: #c8902a;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 14px;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+                .btn-primary-custom:hover {
+                    background: #a67520;
+                    color: #fff;
+                }
+    </style>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a asp-controller="Home" asp-action="Index">
+                        <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="38" r="20" stroke="#c8902a" stroke-width="3" />
+                            <path d="M44 38c0 6.627-5.373 12-12 12S20 44.627 20 38" stroke="#c8902a" stroke-width="2.5" />
+                            <path d="M44 38h6a6 6 0 000-12h-6" stroke="#c8902a" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M28 20c0-4 4-4 4-8" stroke="#c8902a" stroke-width="2" stroke-linecap="round" />
+                            <path d="M34 22c0-3 3-3 3-6" stroke="#c8902a" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                </span>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Products" asp-action="Shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>The daily grind coffee house</h1>
+            <p>Where every cup is a fresh brew of perfection</p>
+            <a class="btn-shop" asp-controller="Products" asp-action="Shop">
+                Shop now&nbsp;🛍
+            </a>
+        </div>
+    </section>
+
+    
+    <section class="top-selling">
+        <div class="container">
+            <div class="mbr-section-head">
+                <h4 class="section-title"><strong>Top Selling</strong></h4>
+                <h5 class="section-subtitle">Make your mornings better with our top-selling product.</h5>
+            </div>
+
+            <div class="row mt-4">
+                @foreach (var item in Model)
+                {
+                    <div class="item col-12 col-md-6 col-lg-4">
+                        <div class="item-wrapper">
+                            <div class="item-img">
+                                <img src="@item.ImageUrl" alt="Coffee Shop" title="" />
+                            </div>
+                            <div class="item-content">
+                                <h6 class="item-subtitle"><strong>@item.Name</strong></h6>
+                                <p class="mbr-text">@item.Price.ToString("C")</p>
+                            </div>
+                            <div class="item-footer">
+                                <a href="" class="btn-primary-custom">
+                                    🛒 Add to cart&nbsp;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
